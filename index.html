@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Uploader</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+<div class="bg-white p-4 rounded-lg shadow-md max-w-md w-full">
+    <h1 class="text-2xl font-semibold mb-4">Image Uploader</h1>
+    <form id="imageForm">
+        <div class="mb-4">
+            <label for="imageURL" class="block text-gray-700">Enter Image URL:</label>
+            <input type="text" id="imageURL" name="imageURL" required
+                   class="w-full border border-gray-300 rounded px-3 py-2">
+        </div>
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Upload</button>
+    </form>
+
+    <div class="mt-4" id="imageContainer">
+        <h2 class="text-lg font-semibold mb-2">Uploaded Image:</h2>
+        <img id="uploadedImage" src="" alt="Uploaded Image" class="w-full">
+    </div>
+</div>
+
+<script>
+    document.getElementById('imageForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const imageURL = document.getElementById('imageURL').value;
+        const uploadedImage = document.getElementById('uploadedImage');
+        const imageContainer = document.getElementById('imageContainer');
+
+        // Set the source of the image to the user-provided URL
+        uploadedImage.src = imageURL;
+
+        // Display the image container
+        imageContainer.style.display = 'block';
+    });
+</script>
+</body>
+</html>
